@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Vault - Mentor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Crimson+Text:ital,wght@0,400;1,600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --ac-red: #7f1d1d;
+            --ac-gold: #c4a747;
+            --ac-dark: #1a1a1a;
+            --ac-parchment: #f4e4bc;
+        }
+        body {
+            background-color: var(--ac-dark);
+            /* Rich red velvet/tapestry background pattern */
+            background-image: url('https://www.transparenttextures.com/patterns/escheresque-dark.png');
+            color: var(--ac-gold);
+            font-family: 'Crimson Text', serif;
+        }
+        h1, h2, h3, .navbar-brand {
+            font-family: 'Cinzel Decorative', cursive;
+            color: var(--ac-gold);
+            text-shadow: 2px 2px 4px #000;
+        }
+        .navbar {
+            background-color: var(--ac-dark) !important;
+            border-bottom: 3px solid var(--ac-gold);
+        }
+        
+        /* The Codex Page (Flag Container) */
+        .codex-page {
+            background-color: var(--ac-parchment);
+            color: var(--ac-dark);
+            border: 4px double var(--ac-gold);
+            padding: 30px;
+            position: relative;
+            box-shadow: 0 0 50px rgba(196, 167, 71, 0.3);
+            background-image: url('https://www.transparenttextures.com/patterns/aged-paper.png');
+        }
+        .codex-seal {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--ac-red);
+            font-size: 3rem;
+            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
+        }
+        .flag-text {
+            font-family: 'Cinzel Decorative';
+            font-size: 1.8rem;
+            color: var(--ac-red);
+            border-bottom: 2px solid var(--ac-red);
+            padding-bottom: 10px;
+            word-break: break-all;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark mb-4">
+        <div class="container justify-content-center">
+            <a class="navbar-brand fs-2" href="#"><i class="fab fa-draft2digital me-3 text-danger"></i> The Sanctuary</a>
+        </div>
+    </nav>
+
+    <div class="container text-center">
+        
+        <div class="mb-5">
+             <h2 class="text-gold"><i class="fas fa-crown text-danger me-2"></i> Welcome, Mentor {{ user }}</h2>
+             <p class="fs-5 fst-italic opacity-75">"Nothing is true, everything is permitted."</p>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="codex-page mt-5">
+                    <i class="fas fa-stamp codex-seal"></i>
+                    
+                    <h3 class="mb-4 text-dark">Codex Page Decrypted</h3>
+                    <p class="lead text-dark">The ancient truth you sought has been revealed:</p>
+                    
+                    <div class="py-4">
+                        <h2 class="flag-text">{{ flag }}</h2>
+                    </div>
+
+                    <div class="mt-4 text-muted fst-italic">
+                        <small>— From the journal of Altaïr Ibn-La'Ahad</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-5">
+             <a href="/logout" class="btn btn-outline-danger btn-lg cinzel-font border-gold text-gold hover-red">Return to Animus</a>
+        </div>
+    </div>
+
+</body>
+</html>

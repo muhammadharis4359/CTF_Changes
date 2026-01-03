@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animus - Rome Sequence</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Crimson+Text:ital,wght@0,400;1,600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --ac-red: #7f1d1d;
+            --ac-gold: #c4a747;
+            --ac-dark: #1a1a1a;
+            --ac-parchment: #f4e4bc;
+        }
+        body {
+            /* Placeholder image - Replace with a real Rome/Animus background later */
+            background: url('https://images.unsplash.com/photo-1552832230-c0197dd311b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Crimson Text', serif;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .animus-overlay {
+             /* Blue-ish Animus glitch effect overlay */
+            position: absolute; top:0; left:0; width:100%; height:100%;
+            background: rgba(20, 30, 48, 0.6);
+            z-index: -1;
+        }
+        .login-card {
+            background-color: rgba(26, 26, 26, 0.9); /* Dark transparent */
+            border: 2px solid var(--ac-gold);
+            color: var(--ac-gold);
+            max-width: 450px;
+            width: 100%;
+            box-shadow: 0 0 20px var(--ac-gold);
+        }
+        h1, h2, h3 {
+            font-family: 'Cinzel Decorative', cursive;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .card-header {
+            background-color: var(--ac-red);
+            color: var(--ac-gold);
+            text-align: center;
+            border-bottom: 2px solid var(--ac-gold);
+            padding: 25px 0;
+        }
+        .form-control {
+            background-color: var(--ac-parchment);
+            border: 2px solid var(--ac-dark);
+            color: var(--ac-dark);
+            font-weight: bold;
+        }
+        .btn-assassin {
+            background-color: var(--ac-red);
+            color: var(--ac-gold);
+            font-family: 'Cinzel Decorative';
+            border: 1px solid var(--ac-gold);
+            transition: all 0.3s ease;
+        }
+        .btn-assassin:hover {
+            background-color: var(--ac-dark);
+            color: var(--ac-red);
+            border-color: var(--ac-red);
+            box-shadow: 0 0 15px var(--ac-red);
+        }
+        .assassin-logo {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="animus-overlay"></div>
+
+    <div class="card login-card">
+        <div class="card-header">
+            <i class="fab fa-draft2digital assassin-logo"></i> 
+            <h3>Animus Interface</h3>
+            <small>Sequence: Rome, 1503</small>
+        </div>
+        <div class="card-body p-4">
+            <p class="text-center mb-4">Join The Brotherhood.</p>
+            <form action="/login" method="POST">
+                <div class="mb-4">
+                    <div class="input-group">
+                        <span class="input-group-text bg-dark border-gold text-gold"><i class="fas fa-user-hood"></i></span>
+                        <input type="text" class="form-control" name="username" placeholder="Enter Subject ID" required>
+                    </div>
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-assassin btn-lg">Identify As An Assassin!</button>
+                </div>
+            </form>
+        </div>
+        <div class="card-footer text-center text-muted border-gold">
+            <small>Warning: Desynchronization risk high.</small>
+        </div>
+    </div>
+
+</body>
+</html>

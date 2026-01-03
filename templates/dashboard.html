@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hideout - Initiate</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Crimson+Text:ital,wght@0,400;1,600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --ac-red: #7f1d1d;
+            --ac-gold: #c4a747;
+            --ac-dark: #1a1a1a;
+            --ac-parchment: #f4e4bc;
+            --ac-stone: #3e3e3e;
+        }
+        /* ---------- Background Overlay ---------- */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 10, 10, 0.4);
+            backdrop-filter: blur(1px);
+            z-index: -1;
+        }
+        .locked-vault {
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(127, 29, 29, 0.15),
+                    rgba(20, 20, 20, 0.85)
+                ),
+                url("https://www.transparenttextures.com/patterns/black-felt.png");
+            border-radius: 12px;
+            backdrop-filter: blur(2px);
+        }
+
+        /* ---------- Enhanced Vault ---------- */
+        .memory-core {
+            background: radial-gradient(circle at top,
+                    rgba(127, 29, 29, 0.9),
+                    rgba(20, 20, 20, 0.95));
+            border: 2px solid var(--ac-gold);
+            box-shadow:
+                0 0 25px rgba(127, 29, 29, 0.6),
+                inset 0 0 40px rgba(0, 0, 0, 0.7);
+            border-radius: 12px;
+            padding: 3rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .memory-core::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(45deg,
+                    rgba(255, 255, 255, 0.02),
+                    rgba(255, 255, 255, 0.02) 2px,
+                    transparent 2px,
+                    transparent 6px);
+            pointer-events: none;
+        }
+
+        .memory-core h4 {
+            font-family: 'Cinzel Decorative';
+            letter-spacing: 1px;
+        }
+
+        .animus-quote {
+            font-size: 0.95rem;
+            opacity: 0.85;
+            margin-top: 1.5rem;
+        }
+
+        .sync-warning {
+            color: #f87171;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+        }
+
+        /* Optional subtle pulse */
+        @keyframes pulseGlow {
+            0% {
+                box-shadow: 0 0 15px rgba(127, 29, 29, 0.5);
+            }
+
+            50% {
+                box-shadow: 0 0 30px rgba(127, 29, 29, 0.9);
+            }
+
+            100% {
+                box-shadow: 0 0 15px rgba(127, 29, 29, 0.5);
+            }
+        }
+
+        .memory-core {
+            animation: pulseGlow 6s infinite;
+        }
+
+        body {
+            background-color: var(--ac-dark);
+            /* Stone texture background */
+            background: url('https://images.unsplash.com/photo-1552832230-c0197dd311b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
+            color: var(--ac-parchment);
+            font-family: 'Crimson Text', serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        .navbar-brand {
+            font-family: 'Cinzel Decorative', cursive;
+            color: var(--ac-gold);
+        }
+
+        .navbar {
+            background-color: var(--ac-red) !important;
+            border-bottom: 3px solid var(--ac-gold);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .parchment-card {
+            background-color: var(--ac-parchment);
+            color: white;
+            border: 2px solid var(--ac-gold);
+            box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .role-badge {
+            background-color: var(--ac-stone);
+            color: var(--ac-parchment);
+            border: 1px solid var(--ac-gold);
+            padding: 5px 15px;
+            font-family: 'Cinzel Decorative';
+        }
+
+        .locked-vault {
+            border: 3px solid var(--ac-red);
+            background-color: rgba(127, 29, 29, 0.1);
+        }
+
+        .locked-vault .card-header {
+            background-color: var(--ac-red);
+            color: var(--ac-gold);
+            font-family: 'Cinzel Decorative';
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark mb-5">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fab fa-draft2digital me-2"></i> The Brotherhood</a>
+            <div class="d-flex align-items-center">
+                <span class="text-gold me-3 border-end border-gold pe-3">Subject: {{ user }}</span>
+                <a href="/logout" class="btn btn-sm btn-outline-warning text-gold">Desynchronize (Logout)</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card parchment-card shadow-sm">
+                    <div class="card-body text-center">
+
+                        <div class="memory-core">
+
+                            <p class="sync-warning mb-3">
+                                Animus Synchronization Failure
+                            </p>
+
+                            <i class="fas fa-lock fa-5x text-danger mb-4"
+                                style="filter: drop-shadow(0 0 15px var(--ac-red));"></i>
+
+                            <h4 class="text-danger mb-3">Memory Blocked</h4>
+
+                            <p class="fs-5 mb-4">
+                                Your genetic memory stream lacks the required clearance level.
+                                The Animus refuses to reconstruct this sequence.
+                            </p>
+
+                            <hr class="border-gold opacity-50">
+
+                            <p class="fst-italic mb-2">
+                                “Nothing is true. Everything is permitted.”
+                            </p>
+
+                            <p class="animus-quote">
+                                Only a <strong>Master Assassin</strong> has the Eagle Vision required
+                                to pierce this veil and access the truth buried within the archives.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div class="card locked-vault shadow-lg">
+                    <div class="card-header">
+                        <h4><i class="fas fa-dungeon"></i> The Vatican Secret Archives (Restricted)</h4>
+                    </div>
+                    <div class="card-body text-center py-5" style="color: var(--ac-parchment);">
+                        <i class="fas fa-lock fa-5x text-danger mb-4"
+                            style="filter: drop-shadow(0 0 10px var(--ac-red));"></i>
+                        <h4 class="text-danger">Memory Blocked</h4>
+                        <p class="fs-5">Your current genetic memory synchronization is insufficient.</p>
+                        <hr class="border-gold opacity-50">
+                        <p class="mb-0 fst-italic">"Only a <strong>Master Assassin (Admin)</strong> possesses the Eagle
+                            Vision to reveal this truth."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
